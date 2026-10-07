@@ -1,0 +1,11 @@
+# Project architecture decisions
+- Programs live under `/programs` (Give Network, Founders); `/collective` stays standalone so old links work.
+- TGN workstreams share one content definition and keep A/B/C/D stored values, so labels and admin records stay aligned.
+- Founder/TGN submissions: validated server functions, server-only writes, admin-only reads; admin CSV built client-side. Protects applicant data.
+- Membership: `membership_applications` + dossiers on `profiles`/`companies`/`company_members`; role/status fields trigger-guarded so only admins/server change them.
+- All invites go through `invite.server.ts` `sendOnboardingInvite`; one onboarding path.
+- Agreements, NDAs, Privacy and Terms share `agreement_versions` (doc_type); immutable signatures are written server-side (`agreements.functions.ts`, `nda.*`), while Privacy and Terms remain read-only. Keeps one versioned legal source of truth.
+- Portal data in `portal.functions.ts`/`member-profile.functions.ts`; visibility enforced server-side.
+- `account_audit`/`account_deletion_requests` written server-side only; own rows readable.
+- Billing: plans→memberships→invoices; invoice (card/bank) or Stripe subscription (lookup key `{plan_code}_{cycle}`); webhook→`subscriptions.server.ts`/`applyInvoicePayment`; housekeeping skips subscribed memberships. One billing record for both.
+- Give Network mission listings: own table, member submits (pending), admin approves; public reads approved via publishable client; company_name copied at submit so public reads need no companies access.

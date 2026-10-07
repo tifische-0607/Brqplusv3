@@ -1,0 +1,2 @@
+ALTER TABLE public.membership_applications ADD COLUMN IF NOT EXISTS source text NOT NULL DEFAULT 'web';
+ALTER TABLE public.membership_applications ADD CONSTRAINT membership_applications_source_check CHECK (source IN ('event','qr','booth','breakout','web'));

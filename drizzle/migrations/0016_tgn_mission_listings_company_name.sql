@@ -1,0 +1,1 @@
+ALTER TABLE public.tgn_mission_listings ADD COLUMN company_name text NOT NULL DEFAULT '';

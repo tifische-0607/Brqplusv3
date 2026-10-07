@@ -1,0 +1,125 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790651952861,
+      "tag": "0000_create_tgn_program_submissions",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790653949743,
+      "tag": "0001_create_founder_applications",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790656064329,
+      "tag": "0002_brq_membership",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1790657215001,
+      "tag": "0003_agreement_esign",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1790657914937,
+      "tag": "0004_agreement_status_and_engagement_nda",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1790671897748,
+      "tag": "0005_membership_application_source",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1790673701839,
+      "tag": "0006_tighten_agreement_read_policies",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1790673867061,
+      "tag": "0007_privacy_notice_doc_type",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1790675969152,
+      "tag": "0008_member_portal_account",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1790676018064,
+      "tag": "0009_member_avatars",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1790694953803,
+      "tag": "0010_backfill_profiles_and_new_user_trigger",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1790738867417,
+      "tag": "0011_membership_billing",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1790786930432,
+      "tag": "0012_membership_subscriptions",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1791265447811,
+      "tag": "0013_add_terms_of_service_document_type",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1791292945942,
+      "tag": "0014_executive_company_column",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1791293521170,
+      "tag": "0015_tgn_mission_listings",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1791293544752,
+      "tag": "0016_tgn_mission_listings_company_name",
+      "breakpoints": true
+    }
+  ]
+}

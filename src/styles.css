@@ -1,0 +1,219 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gold: var(--gold);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-cyan: var(--cyan);
+  --color-navy: var(--navy);
+  --color-charcoal: var(--charcoal);
+  --color-google-yellow: var(--google-yellow);
+  --color-google-red: var(--google-red);
+  --color-google-green: var(--google-green);
+  --color-google-blue: var(--google-blue);
+
+  --shadow-gold: 0 10px 40px -10px color-mix(in oklab, var(--gold) 40%, transparent);
+  --shadow-cyan: 0 10px 40px -10px color-mix(in oklab, var(--cyan) 40%, transparent);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Noir & Gold — executive innovation */
+  --noir: oklch(0.13 0 0);        /* #0d0d0d */
+  --noir-elev: oklch(0.18 0 0);   /* #1a1a1a */
+  --charcoal: oklch(0.18 0 0);
+  --navy: oklch(0.18 0 0);
+  --gold: oklch(0.78 0.12 85);    /* #c9a84c */
+  --gold-light: oklch(0.89 0.1 88); /* #f0d78c */
+  --cyan: oklch(0.89 0.1 88);     /* alias for legacy refs → gold-light */
+  --warning: oklch(0.8 0.16 70);
+  --warning-foreground: oklch(0.13 0 0);
+
+  --google-yellow: #ffc107;
+  --google-red: #ff3d00;
+  --google-green: #4caf50;
+  --google-blue: #1976d2;
+
+  --background: var(--noir);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.16 0 0);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: var(--noir-elev);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: var(--gold);
+  --primary-foreground: oklch(0.13 0 0);
+  --secondary: oklch(0.22 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.82 0 0);
+  --accent: var(--gold-light);
+  --accent-foreground: oklch(0.13 0 0);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 10%);
+  --ring: color-mix(in oklab, var(--gold) 60%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .member-portal :where(a, button, input, select, textarea, [role="button"], [role="switch"], [role="tab"]):focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .text-gold { color: var(--gold); }
+  .text-cyan { color: var(--cyan); }
+  .bg-charcoal { background-color: var(--charcoal); }
+  .bg-navy { background-color: var(--navy); }
+
+  .glass {
+    background: color-mix(in oklab, var(--charcoal) 70%, transparent);
+    backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .glow-gold:hover {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--gold) 60%, transparent),
+                0 14px 40px -10px color-mix(in oklab, var(--gold) 35%, transparent);
+    border-color: color-mix(in oklab, var(--gold) 70%, transparent);
+  }
+  .glow-cyan:hover {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--cyan) 60%, transparent),
+                0 14px 40px -10px color-mix(in oklab, var(--cyan) 35%, transparent);
+    border-color: color-mix(in oklab, var(--cyan) 70%, transparent);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 30s linear infinite; }
+
+  @keyframes mesh-pan {
+    0% { transform: translate3d(0,0,0) scale(1.1); }
+    50% { transform: translate3d(-2%,-1%,0) scale(1.15); }
+    100% { transform: translate3d(0,0,0) scale(1.1); }
+  }
+  .animate-mesh { animation: mesh-pan 28s ease-in-out infinite; }
+
+  @keyframes pulse-node {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .animate-shimmer { animation: shimmer 1.8s ease-in-out infinite; }
+
+  .card-lift-gold {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .card-lift-gold:hover,
+  .card-lift-gold:focus-visible {
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--gold) 50%, transparent),
+                0 16px 48px -12px color-mix(in oklab, var(--gold) 30%, transparent);
+    border-color: color-mix(in oklab, var(--gold) 60%, transparent);
+  }
+}
+
+@utility shimmer-overlay {
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    color-mix(in oklab, var(--gold) 15%, transparent) 45%,
+    color-mix(in oklab, var(--cyan) 12%, transparent) 50%,
+    color-mix(in oklab, var(--gold) 15%, transparent) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+}
+
+@media print {
+  body.invoice-printing * { visibility: hidden !important; }
+  body.invoice-printing .invoice-print-root,
+  body.invoice-printing .invoice-print-root * { visibility: visible !important; }
+  body.invoice-printing .invoice-print-root {
+    position: absolute !important;
+    inset: 0 !important;
+    max-width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 24px !important;
+  }
+}

@@ -1,0 +1,2 @@
+ALTER TABLE public.agreement_versions DROP CONSTRAINT agreement_versions_doc_type_check;
+ALTER TABLE public.agreement_versions ADD CONSTRAINT agreement_versions_doc_type_check CHECK (doc_type = ANY (ARRAY['membership_agreement'::text, 'engagement_nda'::text, 'privacy_notice'::text]));
